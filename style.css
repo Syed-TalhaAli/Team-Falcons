@@ -225,7 +225,7 @@ body {
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    margin-top: 300px;
+    margin-top: 340px;
 
 }
 
@@ -234,7 +234,7 @@ body {
     padding: 15px 25px;
     color: #e2e8f0;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
@@ -380,6 +380,10 @@ nav {
     font-size: 1.8rem;
     font-weight: 700;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .logo a {
