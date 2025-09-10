@@ -25,6 +25,48 @@
         <div class="loading-percentage" id="loadingPercentage">0%</div>
     </div>
 
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="#home" class="logo">
+                <div class="logo-img">
+                    <img src="Logo-NoBG.png" alt="">
+                </div>
+                <h1>Team Falcons</h1>
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#home"><i class="fas fa-home"></i>Home</a></li>
+                <li><a href="#services"><i class="fas fa-cogs"></i>Services</a></li>
+                <li><a href="#about"><i class="fas fa-info-circle"></i>About</a></li>
+                <li><a href="#contact_us"><i class="fas fa-envelope"></i>Contact</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="social-links">
+                <a href="https://www.facebook.com/profile.php?id=61578853479398" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://x.com/TeamFalcons03" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/team-falcons-86132a378/" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.instagram.com/team3falcons/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/923092999877" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <div class="main-content" id="mainContent">
         <header>
@@ -43,6 +85,11 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact_us">Contact</a></li>
                 </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </nav>
         </header>
 
@@ -73,7 +120,9 @@
                         <p>Create stunning, responsive, and user-friendly interfaces using modern technologies like
                             React, Vue.js, and Angular. We focus on delivering exceptional user experiences across all
                             devices.</p>
-                        <a href="#contact_us"><button>Get Quote</button></a>
+                        <div class="quote-btn">
+                            <a href="#contact_us"><button>Get Quote</button></a>
+                        </div>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">
@@ -187,13 +236,13 @@
         <section id="contact_us">
             <div class="contact-container">
                 <div class="contact-form">
-                    <h2>Let’s Work Together</h2>
+                    <h2>Let's Work Together</h2>
                     <form action="https://formspree.io/f/xovnrnvz" method="POST">
                         <input type="text" name="name" id="name" placeholder="Your Name" required />
                         <input type="email" name="email" id="email" placeholder="Email Address" required />
                         <input type="tel" name="phone" id="phone" placeholder="Phone Number" required />
                         <textarea name="message" id="message" rows="5"
-                            placeholder="Share your requirements, we’ll prepare the right solution for you."
+                            placeholder="Share your requirements, we'll prepare the right solution for you."
                             required></textarea>
                         <button type="submit">Submit</button>
                     </form>
@@ -287,6 +336,60 @@
                 loadingPercentage.textContent = Math.round(progress) + '%';
             }, 100);
         });
+
+        // Sidebar functionality
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const mainContent = document.getElementById('mainContent');
+
+        function toggleSidebar() {
+            hamburger.classList.toggle('active');
+            sidebar.classList.toggle('open');
+            sidebarOverlay.classList.toggle('active');
+            document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : 'auto';
+        }
+
+        function closeSidebar() {
+            hamburger.classList.remove('active');
+            sidebar.classList.remove('open');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        hamburger.addEventListener('click', toggleSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // 👉 Close sidebar + smooth scroll when clicking sidebar nav links
+        document.querySelectorAll('.sidebar-nav ul li a').forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                // Close the sidebar first
+                closeSidebar();
+
+                if (targetElement) {
+                    // Delay so sidebar animation finishes
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 300);
+                }
+            });
+        });
+
+        // Close sidebar on window resize if screen becomes larger
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                closeSidebar();
+            }
+        });
+
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
