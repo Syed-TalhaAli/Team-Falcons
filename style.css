@@ -257,7 +257,7 @@ body {
 /* Sidebar Footer */
 .sidebar-footer {
     position: absolute;
-    bottom: 20px;
+    bottom: 200px;
     left: 0;
     right: 0;
     padding: 0 25px;
@@ -561,7 +561,7 @@ nav {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    height: 430px;
+    height: 480px;
 }
 
 .service-card::before {
@@ -600,6 +600,7 @@ nav {
     transition: all 0.3s ease;
     box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
     cursor: pointer;
+    margin-top: auto;
 }
 
 .service-card button:hover {
@@ -904,7 +905,6 @@ footer .logo {
     }
 
     .service-card {
-        height: 480px;
     }
 
     .about-content {
