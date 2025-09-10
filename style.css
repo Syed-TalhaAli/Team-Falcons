@@ -9,7 +9,6 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     background: #000000 !important;
-    text-align: justify;
 }
 
 /* Loading Screen Styles */
@@ -651,6 +650,7 @@ nav {
 .service-card p {
     color: #ffffff;
     line-height: 1.7;
+    text-align: justify;
 }
 
 /* About Section */
@@ -684,6 +684,7 @@ nav {
     line-height: 1.8;
     color: #ffffff;
     margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
 .stats {
@@ -711,6 +712,7 @@ nav {
 .stat p {
     color: #ffffff;
     font-size: 0.9rem;
+    text-align: center;
 }
 
 .about-image {
