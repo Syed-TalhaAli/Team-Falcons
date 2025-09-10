@@ -561,7 +561,6 @@ nav {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    height: 480px;
 }
 
 .service-card::before {
@@ -587,12 +586,11 @@ nav {
 
 .service-card button {
     display: inline-block;
-    position: absolute;
     bottom: 1rem;
     background: linear-gradient(135deg, #3b82f6, #1e40af);
     color: white;
-    padding: 1rem 6rem;
-    border-radius: 50px;
+    padding: 1rem;
+    border-radius: 10px !important;
     border: none;
     text-decoration: none;
     font-weight: 600;
@@ -600,7 +598,9 @@ nav {
     transition: all 0.3s ease;
     box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
     cursor: pointer;
-    margin-top: auto;
+    margin-top: 1rem;
+    width: 100%;
+    height: auto;
 }
 
 .service-card button:hover {
@@ -902,9 +902,6 @@ footer .logo {
 
     .services-grid {
         grid-template-columns: 1fr;
-    }
-
-    .service-card {
     }
 
     .about-content {
